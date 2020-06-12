@@ -1,0 +1,18 @@
+<div class="row mb-2" [formGroup]="workerForm">
+    <div class="col-12">
+        <h5>Добавить сотрудника</h5>
+    </div>
+    <div class="col-4"><input type="text" class="form-control" placeholder="name" formControlName="Name"></div>
+    <div class="col-4"><input type="text" class="form-control" placeholder="surname" formControlName="Surname"></div>
+    <div class="col-4"><input type="text" class="form-control" placeholder="phone" [textMask]="{mask: mask}" formControlName="Phone"/></div> 
+    
+    <div class="col-4 mt-2">
+        <select class="custom-select"  formControlName="Type">
+            <option [ngValue]="myWorkerType.programmer">Программист</option>         
+            <option [ngValue]="myWorkerType.designer">Дизайнер</option>  
+            <option [ngValue]="myWorkerType.copywriter">Копирайтер</option>  
+            <option [ngValue]="myWorkerType.manager">Менеджер</option>  
+        </select>
+    </div>
+    <div class="col-12 mt-2"><button class="btn btn-outpine-primary btn-sm" [disabled]="workerForm.invalid" (click)="onAddWorker()">Добавить</button></div>
+</div> 

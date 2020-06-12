@@ -1,0 +1,17 @@
+<div class="container" *ngIf="isLoaded">
+  <div class="row mb-3">
+    <div class="cal-12">
+     <h1>{{ title }}</h1>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-6 my-2">
+      <input type="text" class="form-control" placeholder="Поиск рабочего по имени или фамилии" [(ngModel)]="searchStr">
+    </div>
+  </div>
+  <app-addform-worker (addWorker)="onAddWorker($event)" ></app-addform-worker>
+  <app-table-workers [title]="'Программисты'" [workers]="getByType(myWorkerType.programmer) | myfilter: searchStr" (deleteWorker)="onDeleteWorker($event)" (renameWorker)="onRenameWorker($event)"></app-table-workers>
+  <app-table-workers [title]="'Дизайнеры'" [workers]="getByType(myWorkerType.designer) | myfilter: searchStr" (deleteWorker)="onDeleteWorker($event)" (renameWorker)="onRenameWorker($event)"></app-table-workers>
+  <app-table-workers [title]="'Копирайтеры'" [workers]="getByType(myWorkerType.copywriter) | myfilter: searchStr" (deleteWorker)="onDeleteWorker($event)" (renameWorker)="onRenameWorker($event)"></app-table-workers>
+  <app-table-workers [title]="'Менеджеры'" [workers]="getByType(myWorkerType.manager) | myfilter: searchStr" (deleteWorker)="onDeleteWorker($event)" (renameWorker)="onRenameWorker($event)"></app-table-workers>
+</div>

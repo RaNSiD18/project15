@@ -1,0 +1,25 @@
+<div class="row" *ngIf="workers.length > 0">
+    <div class="col-12">
+        <h5>{{ title }}</h5>
+    </div>
+<table class="table">
+    <thead>
+      <tr>
+        <th scope="col" [style.width]="'100px'">id</th>
+        <th scope="col"[style.width]="'10%'">Name</th>
+        <th scope="col" [style.width]="'20%'">Surname</th>
+        <th scope="col" >Phone</th>
+        <th scope="col"[style.width]="'150px'"></th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let worker of workers">
+        <th scope="row">{{worker.id}}</th>
+        <td>{{worker.name}}</td>
+        <td>{{worker.surname}}</td>
+        <td>{{worker.phone}}</td>
+        <td><button (click)="onDeleteWorker(worker.id)" class="btn btn-outline-danger btn-sm">Удалить</button></td>
+      </tr>
+    </tbody>
+  </table>
+</div>
